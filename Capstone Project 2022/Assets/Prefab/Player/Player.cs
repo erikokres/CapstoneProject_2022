@@ -25,7 +25,8 @@ public class Player : MonoBehaviour
 
     public void Jalan(float ArahX,float ArahZ)
     {
-        player.Move(new Vector3(ArahX * Kecepatan * Time.deltaTime, 0, ArahZ * Kecepatan * Time.deltaTime));
+        player.Move(transform.forward *ArahZ *Kecepatan);
+        player.Move(transform.right * ArahX * Kecepatan);
     }
 
     public void Gravitasi()

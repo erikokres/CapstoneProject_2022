@@ -5,16 +5,20 @@ using UnityEngine;
 public class ControlMobile : MonoBehaviour
 {
     public FloatingJoystick joy;
+    AimMobile aim;
     Player player;
 
     void Start()
     {
         player = GetComponent<Player>();
+        aim = GetComponentInChildren<AimMobile>();
     }
 
-    void Update()
+
+    void FixedUpdate()
     {
-        player.Jalan(joy.Horizontal, joy.Vertical);
+        player.Jalan(joy.Horizontal * Time.deltaTime, joy.Vertical * Time.deltaTime);
         player.Gravitasi();
+    
     }
 }
