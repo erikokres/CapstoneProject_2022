@@ -4,19 +4,54 @@ using UnityEngine;
 
 public class GrabFPS : MonoBehaviour
 {
-    RaycastHit ray;
+
+    public float KekuatanGenggam;
+    public float PanjangTangan;
     public Transform tangan;
+
+    RaycastHit hit;
+    Rigidbody benda;
+
     [HideInInspector]
-    public bool megang;
+    public int megang = 1;
+
+    private void FixedUpdate()
+    {
+        if (benda != null)
+        {
+            benda.AddForce((tangan.position - benda.transform.position),ForceMode.VelocityChange);
+
+            Mathf.Clamp(benda.velocity.x, -1, 1);
+            Mathf.Clamp(benda.velocity.y, -1, 1);
+            Mathf.Clamp(benda.velocity.z, -1, 1);
+
+            benda.velocity = benda.velocity * KekuatanGenggam;
+        }
+    }
 
     public void Ambil()
     {
-        Physics.Raycast(transform.localPosition, transform.forward, out ray);
-
-        if (ray.collider.attachedRigidbody)
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit,PanjangTangan))
         {
-            Rigidbody rig = ray.collider.attachedRigidbody;
-            rig.AddForce(Vector3.Lerp(rig.transform.position,tangan.transform.position,.5f));
+            if (hit.collider.attachedRigidbody)
+            {
+                if (megang == 1)
+                {
+                    benda = hit.rigidbody;
+                    benda.useGravity = false;
+                }
+            }
+            if (megang == -1)
+            {
+                if (megang == -1)
+                {
+                    benda.useGravity = true;
+                    benda = null;
+                }
+            }
+            megang = megang * -1;
         }
+
     }
+
 }
