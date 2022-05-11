@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 451993935}
   - component: {fileID: 451993936}
   - component: {fileID: 451993937}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -563,7 +563,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451993931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.66, z: 0.25}
+  m_LocalPosition: {x: 0, y: 0.66, z: -0.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1867341310}
@@ -2485,7 +2485,7 @@ GameObject:
   - component: {fileID: 1787068151}
   - component: {fileID: 1787068149}
   - component: {fileID: 1787068150}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2687,7 +2687,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1867341310}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tangan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
