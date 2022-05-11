@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     Vector3 arah;
 
     float gravitasi;
+    float nundhuk=-1;
     bool lompat;
 
     public bool napak;
@@ -55,10 +56,23 @@ public class Player : MonoBehaviour
 
     public void Lompat()
     {
-        if (napak == true)
+        if (napak == true && nundhuk != 1)
         {
             lompat = true;
         }
+    }
+
+    public void nunduk()
+    {
+        if (nundhuk == -1)
+        {
+            transform.localScale = new Vector3(1, .5f, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        nundhuk = nundhuk * -1;
     }
 
 
