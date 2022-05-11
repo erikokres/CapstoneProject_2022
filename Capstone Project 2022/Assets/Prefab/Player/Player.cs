@@ -6,8 +6,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     CharacterController player;
+    Vector3 arah;
 
     float gravitasi;
+    bool lompat;
 
     public bool napak;
     public float Kecepatan;
@@ -21,6 +23,16 @@ public class Player : MonoBehaviour
     private void Update()
     {
         napak = Physics.CheckSphere(transform.position - new Vector3(0, 1f, 0), .1f);
+
+        Gravitasi();
+        if (lompat==true)
+        {
+            gravitasi = KekuatanLoncat;
+            player.Move(new Vector3(0, gravitasi * Time.deltaTime, 0));
+            lompat = false;
+        }
+        arah.y = gravitasi;
+        player.Move(arah*Time.deltaTime);
     }
 
     public void Jalan(float ArahX,float ArahZ)
@@ -33,12 +45,19 @@ public class Player : MonoBehaviour
     {
         if (napak == true)
         {
-            player.Move(new Vector3(0, -gravitasi, 0));
+            gravitasi = -2;
         }
         else
         {
-            gravitasi += 9 * Time.deltaTime;
-            player.Move(new Vector3(0, -gravitasi * Time.deltaTime, 0));
+            gravitasi += -9 * Time.deltaTime;
+        }
+    }
+
+    public void Lompat()
+    {
+        if (napak == true)
+        {
+            lompat = true;
         }
     }
 

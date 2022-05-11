@@ -17,8 +17,6 @@ public class ControlMobile : MonoBehaviour
 
     void FixedUpdate()
     {
-        player.Jalan(joy.Horizontal * Time.deltaTime, joy.Vertical * Time.deltaTime);
-        player.Gravitasi();
-    
+        player.Jalan(joy.Horizontal * Time.deltaTime, joy.Vertical * Time.deltaTime);    
     }
 }
